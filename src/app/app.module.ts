@@ -9,9 +9,10 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductdetailsComponent } from './components/productdetails/productdetails.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, ProductsComponent, ProductdetailsComponent],
+  declarations: [AppComponent, ProductsComponent, ProductdetailsComponent, NavbarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

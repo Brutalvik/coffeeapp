@@ -10,6 +10,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { appReducer } from './Store/reducers/app.reducer';
 import { StoreEffects } from './Store/effects/app.effects';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 //Component Imports
 import { AppComponent } from './app.component';
@@ -41,6 +42,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     HttpClientModule,
     StoreModule.forRoot({ app: appReducer }),
     EffectsModule.forRoot([StoreEffects]),
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -8,8 +8,12 @@ import { CoffeeDataInterface } from 'src/app/Models/app.model';
 })
 export class CardComponent implements OnInit {
   @Input() data: CoffeeDataInterface[];
-
+  p: number = 1;
   constructor() {}
 
   ngOnInit(): void {}
+
+  onPageChange(page: number) {
+    this.p = page;
+  }
 }

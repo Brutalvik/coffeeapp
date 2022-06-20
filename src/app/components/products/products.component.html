@@ -1,6 +1,5 @@
 <!-- <app-loader> </app-loader> -->
 <div *ngIf="!error$">
-  <app-pagination></app-pagination>
   <app-card *ngIf="!isLoading$" [data]="data$"></app-card>
   <app-loader *ngIf="isLoading$"></app-loader>
 </div>

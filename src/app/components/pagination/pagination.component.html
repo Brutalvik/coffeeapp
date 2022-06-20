@@ -1,7 +1,9 @@
-<mat-paginator
-  [length]="length"
-  [pageSize]="pageSize"
-  [pageSizeOptions]="pageSizeOptions"
-  (page)="pageEvent = $event"
->
-</mat-paginator>
+<div class="pagnation">
+  <mat-toolbar>
+    <pagination-controls
+      fxFlex
+      fxLayoutAlign="flex-end"
+      (pageChange)="changePage($event)"
+    ></pagination-controls>
+  </mat-toolbar>
+</div>

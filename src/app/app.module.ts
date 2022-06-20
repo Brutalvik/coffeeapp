@@ -6,6 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './Modules/material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './Store/reducers/app.reducer';
+import { AppService } from './shared/app.services';
 
 //Component Imports
 import { AppComponent } from './app.component';
@@ -35,10 +38,10 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     MaterialModule,
     FlexLayoutModule,
     HttpClientModule,
-    // StoreModule.forRoot(appReducer),
+    StoreModule.forRoot(reducers),
     // EffectsModule.forRoot([StoreEffects]),
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

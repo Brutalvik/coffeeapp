@@ -1,5 +1,6 @@
 <!-- <app-loader> </app-loader> -->
-<div fxLayout.lg="100%">
+<div>
   <app-pagination></app-pagination>
+  <app-card *ngIf="!(isLoading$ | async)"></app-card>
+  <app-loader *ngIf="isLoading$ | async"></app-loader>
 </div>
-<app-card></app-card>

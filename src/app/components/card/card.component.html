@@ -1,6 +1,11 @@
 <div class="content">
   <div fxLayout="row wrap" fxLayoutGap="16px grid">
-    <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let d of data">
+    <div
+      fxFlex="33%"
+      fxFlex.xs="100%"
+      fxFlex.sm="50%"
+      *ngFor="let d of data | slice: 0:10; 50, 1"
+    >
       <mat-card fxFlex="300px" class="mat-elevation-z10">
         <mat-card-header>
           <mat-card-title>{{ d.blend_name }}</mat-card-title>

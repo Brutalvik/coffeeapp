@@ -32,6 +32,6 @@ export class ProductsComponent implements OnInit {
     });
     this.store.dispatch(fetchData());
     this.store.subscribe((data) => (this.data$ = data.app.data));
-    this.store.subscribe((data) => console.log(data.app.error));
+    this.store.subscribe((data) => (this.error$ = data.app.error));
   }
 }

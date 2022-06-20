@@ -1,15 +1,10 @@
 <div class="content">
   <div fxLayout="row wrap" fxLayoutGap="16px grid">
-    <div
-      fxFlex="33%"
-      fxFlex.xs="100%"
-      fxFlex.sm="50%"
-      *ngFor="let num of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
-    >
+    <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let d of data">
       <mat-card fxFlex="300px" class="mat-elevation-z10">
         <mat-card-header>
-          <mat-card-title>Java</mat-card-title>
-          <mat-card-subtitle>Copan, Honduras</mat-card-subtitle>
+          <mat-card-title>{{ d.blend_name }}</mat-card-title>
+          <mat-card-subtitle>Origin: {{ d.origin }}</mat-card-subtitle>
         </mat-card-header>
         <img
           class="image"
@@ -18,7 +13,7 @@
           alt="Coffee"
         />
         <mat-card-content>
-          <p>complex, silky, clementine, hay, lemonade</p>
+          <p>Variety: {{ d.variety }}</p>
         </mat-card-content>
         <mat-card-actions>
           <button mat-raised-button>MORE</button>

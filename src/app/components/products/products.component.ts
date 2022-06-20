@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-
 import { fetchData } from 'src/app/Store/actions/app.actions';
-
 import { CoffeeDataInterface } from '../../Models/app.model';
 
 @Component({
@@ -12,6 +10,7 @@ import { CoffeeDataInterface } from '../../Models/app.model';
 })
 export class ProductsComponent implements OnInit {
   isLoading$: boolean;
+  data$: CoffeeDataInterface[];
 
   constructor(
     private store: Store<{
@@ -24,6 +23,6 @@ export class ProductsComponent implements OnInit {
       this.isLoading$ = data.app.isLoading;
     });
     this.store.dispatch(fetchData());
-    this.store.subscribe((data) => console.log(data.app));
+    this.store.subscribe((data) => (this.data$ = data.app.data));
   }
 }

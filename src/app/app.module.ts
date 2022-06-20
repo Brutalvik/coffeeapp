@@ -18,7 +18,7 @@ import { ProductdetailsComponent } from './components/productdetails/productdeta
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavComponent } from './navigation/sidenav/sidenav.component';
 import { CardComponent } from './components/card/card.component';
-import { LoaderComponent } from './assets/loader/loader.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [

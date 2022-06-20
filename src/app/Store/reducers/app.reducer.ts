@@ -4,7 +4,7 @@ import { getSuccessData, isLoaded } from '../actions/app.actions';
 
 const initialState: AppStateInterface = {
   isLoading: false,
-  coffeeData: null,
+  data: null,
 };
 
 const _appReducer = createReducer(

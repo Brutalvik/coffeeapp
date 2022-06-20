@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { select, Store } from '@ngrx/store';
-import { Observable, map } from 'rxjs';
+import { Store } from '@ngrx/store';
+
 import { fetchData } from 'src/app/Store/actions/app.actions';
-import { getLoading } from 'src/app/Store/selector/app.selector';
-import * as fromRoot from '../../Models/app.model';
+
+import { CoffeeDataInterface } from '../../Models/app.model';
 
 @Component({
   selector: 'app-products',
@@ -15,7 +15,7 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private store: Store<{
-      app: { isLoading: boolean; data: fromRoot.CoffeeDataInterface[] };
+      app: { isLoading: boolean; data: CoffeeDataInterface[] };
     }>
   ) {}
 
@@ -24,5 +24,6 @@ export class ProductsComponent implements OnInit {
       this.isLoading$ = data.app.isLoading;
     });
     this.store.dispatch(fetchData());
+    this.store.subscribe((data) => console.log(data.app));
   }
 }

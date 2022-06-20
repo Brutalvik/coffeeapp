@@ -8,7 +8,13 @@ export interface CoffeeDataInterface {
   intensifier?: string;
 }
 
+export interface ErrorDataInterface {
+  status: number;
+  message: string;
+}
+
 export interface AppStateInterface {
   isLoading?: boolean;
   data?: CoffeeDataInterface;
+  error?: ErrorDataInterface;
 }

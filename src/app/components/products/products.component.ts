@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { fetchData } from 'src/app/Store/actions/app.actions';
-import { CoffeeDataInterface } from '../../Models/app.model';
+import {
+  CoffeeDataInterface,
+  ErrorDataInterface,
+} from '../../Models/app.model';
 
 @Component({
   selector: 'app-products',
@@ -11,10 +14,15 @@ import { CoffeeDataInterface } from '../../Models/app.model';
 export class ProductsComponent implements OnInit {
   isLoading$: boolean;
   data$: CoffeeDataInterface[];
+  error$: ErrorDataInterface;
 
   constructor(
     private store: Store<{
-      app: { isLoading: boolean; data: CoffeeDataInterface[] };
+      app: {
+        isLoading: boolean;
+        data: CoffeeDataInterface[];
+        error: ErrorDataInterface;
+      };
     }>
   ) {}
 
@@ -24,5 +32,6 @@ export class ProductsComponent implements OnInit {
     });
     this.store.dispatch(fetchData());
     this.store.subscribe((data) => (this.data$ = data.app.data));
+    this.store.subscribe((data) => console.log(data.app.error));
   }
 }

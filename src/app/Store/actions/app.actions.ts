@@ -1,5 +1,8 @@
 import { createAction, props } from '@ngrx/store';
-import { CoffeeDataInterface } from 'src/app/Models/app.model';
+import {
+  CoffeeDataInterface,
+  ErrorDataInterface,
+} from 'src/app/Models/app.model';
 
 export const LOADING = '[UI] Start Loading';
 export const LOAD_DATA = '[DATA] Load Data';
@@ -11,4 +14,8 @@ export const fetchData = createAction(LOAD_DATA);
 export const getSuccessData = createAction(
   GET_DATA_SUCCESS,
   props<{ data: CoffeeDataInterface }>()
+);
+export const getErrorData = createAction(
+  GET_ERROR_DATA,
+  props<{ error: ErrorDataInterface }>()
 );

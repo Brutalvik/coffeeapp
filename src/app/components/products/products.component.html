@@ -1,6 +1,11 @@
 <!-- <app-loader> </app-loader> -->
-<div>
+<div *ngIf="!error$">
   <app-pagination></app-pagination>
   <app-card *ngIf="!isLoading$" [data]="data$"></app-card>
   <app-loader *ngIf="isLoading$"></app-loader>
+</div>
+
+<div *ngIf="error$">
+  <h1>Status : {{ error.status }}</h1>
+  <h5>Error: {{ error.message }}</h5>
 </div>

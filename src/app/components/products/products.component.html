@@ -1,6 +1,6 @@
 <!-- <app-loader> </app-loader> -->
 <div>
   <app-pagination></app-pagination>
-  <app-card *ngIf="!(isLoading$ | async)"></app-card>
-  <app-loader *ngIf="isLoading$ | async"></app-loader>
+  <app-card *ngIf="!isLoading$"></app-card>
+  <app-loader *ngIf="isLoading$"></app-loader>
 </div>

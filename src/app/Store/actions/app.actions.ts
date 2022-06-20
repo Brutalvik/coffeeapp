@@ -1,14 +1,13 @@
-import { Action } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
+import { CoffeeDataInterface } from 'src/app/Models/app.model';
 
-export const START_LOADING = '[UI] Start Loading';
-export const STOP_LOADING = '[UI] Stop Loading';
+export const LOADING = '[UI] Start Loading';
+export const LOAD_DATA = '[DATA] Load Data';
+export const GET_DATA_SUCCESS = '[DATA] Get Data success';
 
-export class StartLoading implements Action {
-  readonly type = START_LOADING;
-}
-
-export class StopLoading implements Action {
-  readonly type = STOP_LOADING;
-}
-
-export type UIActions = StartLoading | StopLoading;
+export const isLoaded = createAction(LOADING, props<{ status: boolean }>());
+export const fetchData = createAction(LOAD_DATA);
+export const getSuccessData = createAction(
+  GET_DATA_SUCCESS,
+  props<{ data: CoffeeDataInterface }>()
+);

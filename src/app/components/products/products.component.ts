@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { Observable, map } from 'rxjs';
-import { AppService } from 'src/app/shared/app.services';
+import { fetchData } from 'src/app/Store/actions/app.actions';
+import { getLoading } from 'src/app/Store/selector/app.selector';
 import * as fromRoot from '../../Models/app.model';
-import { getIsLoading } from 'src/app/Store/reducers/app.reducer';
 
 @Component({
   selector: 'app-products',
@@ -11,11 +11,18 @@ import { getIsLoading } from 'src/app/Store/reducers/app.reducer';
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
-  isLoading$: Observable<boolean>;
+  isLoading$: boolean;
 
-  constructor(private store: Store<fromRoot.AppStateInterface>) {}
+  constructor(
+    private store: Store<{
+      app: { isLoading: boolean; data: fromRoot.CoffeeDataInterface[] };
+    }>
+  ) {}
 
   ngOnInit(): void {
-    this.isLoading$ = this.store.select(getIsLoading);
+    this.store.subscribe((data) => {
+      this.isLoading$ = data.app.isLoading;
+    });
+    this.store.dispatch(fetchData());
   }
 }

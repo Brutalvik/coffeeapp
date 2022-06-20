@@ -7,8 +7,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './Modules/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
-import { reducers } from './Store/reducers/app.reducer';
-import { AppService } from './shared/app.services';
+import { EffectsModule } from '@ngrx/effects';
+import { appReducer } from './Store/reducers/app.reducer';
+import { StoreEffects } from './Store/effects/app.effects';
 
 //Component Imports
 import { AppComponent } from './app.component';
@@ -38,10 +39,10 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     MaterialModule,
     FlexLayoutModule,
     HttpClientModule,
-    StoreModule.forRoot(reducers),
-    // EffectsModule.forRoot([StoreEffects]),
+    StoreModule.forRoot({ app: appReducer }),
+    EffectsModule.forRoot([StoreEffects]),
   ],
-  providers: [AppService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

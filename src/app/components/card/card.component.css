@@ -1,0 +1,17 @@
+.image {
+  height: 200px;
+  width: 300px;
+}
+
+mat-card-actions {
+  float: right;
+  padding: 0px 20px;
+}
+
+mat-card {
+  margin: 40px;
+}
+
+.content {
+  padding: 16px;
+}

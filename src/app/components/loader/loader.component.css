@@ -88,12 +88,12 @@
   width: 20vw;
   left: 40vw;
   top: 30%;
+  left: 37%;
   z-index: 2;
   text-align: center;
   padding: 20px;
   background-color: #eee;
   border: 1px solid black;
-  border-radius: 100px;
 }
 
 .backdrop {

@@ -12,17 +12,28 @@
           <mat-card-title>{{ d.blend_name }}</mat-card-title>
           <mat-card-subtitle>Origin: {{ d.origin }}</mat-card-subtitle>
         </mat-card-header>
+
         <img
           class="image"
           mat-card-image
-          src="../../assets/coffee3.png"
+          src="../assets/coffee6.png"
           alt="Coffee"
         />
+
         <mat-card-content>
           <p>Variety: {{ d.variety }}</p>
         </mat-card-content>
+        <mat-card-content>
+          <p>ID: {{ d.id }}</p>
+        </mat-card-content>
         <mat-card-actions>
-          <button mat-raised-button>MORE</button>
+          <button
+            mat-raised-button
+            routerLink="productdetails"
+            (click)="setCofeeDetails(d.id)"
+          >
+            MORE
+          </button>
         </mat-card-actions>
       </mat-card>
     </div>

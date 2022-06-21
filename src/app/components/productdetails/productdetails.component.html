@@ -1,1 +1,34 @@
-<p>productdetails works!</p>
+<div>
+  <div>
+    <div class="image">
+      <img src="../../assets/coffee10.png" alt="coffee10" />
+    </div>
+
+    <div class="label">
+      <h1>Blend Name: {{ coffeeData$.blend_name }}</h1>
+
+      <h4>ID: {{ coffeeData$.id }}</h4>
+    </div>
+
+    <div class="info_container">
+      <hr />
+      <p>Origin : {{ coffeeData$.origin }}</p>
+      <hr />
+      <hr />
+      <p>Variety : {{ coffeeData$.variety }}</p>
+      <hr />
+      <hr />
+      <p>Intensity : {{ coffeeData$.intensifier }}</p>
+      <hr />
+      <hr />
+      <p>Taste : {{ coffeeData$.notes }}</p>
+      <hr />
+    </div>
+
+    <div class="btn-container">
+      <button mat-raised-button (click)="redirectToHome()">
+        Back to Coffees
+      </button>
+    </div>
+  </div>
+</div>

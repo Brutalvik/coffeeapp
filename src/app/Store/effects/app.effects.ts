@@ -31,10 +31,11 @@ export class StoreEffects {
             map((data) => {
               this.store.dispatch(isLoaded({ status: false }));
               if (data) {
+                localStorage.setItem('data', JSON.stringify(data));
                 return getSuccessData({ data });
               } else {
                 getErrorData({
-                  error: { status: 503, message: 'Service Unavailable' },
+                  error: { status: 503, message: 'Service' },
                 });
               }
             })

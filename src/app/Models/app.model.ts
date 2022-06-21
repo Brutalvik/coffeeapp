@@ -17,4 +17,5 @@ export interface AppStateInterface {
   isLoading?: boolean;
   data?: CoffeeDataInterface;
   error?: ErrorDataInterface;
+  coffee?: CoffeeDataInterface;
 }

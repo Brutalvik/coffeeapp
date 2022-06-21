@@ -21,6 +21,8 @@ import { SidenavComponent } from './navigation/sidenav/sidenav.component';
 import { CardComponent } from './components/card/card.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { SnackbarComponent } from './components/snackbar/snackbar.component';
+import { SnackmessageComponent } from './components/snackmessage/snackmessage.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     CardComponent,
     LoaderComponent,
     PaginationComponent,
+    SnackbarComponent,
+    SnackmessageComponent,
   ],
   imports: [
     BrowserModule,

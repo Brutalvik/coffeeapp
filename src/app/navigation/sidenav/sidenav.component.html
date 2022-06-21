@@ -6,9 +6,10 @@
     >
   </mat-list-item>
   <mat-list-item>
-    <a mat-list-item routerLink="/productdetails" (click)="onCloseSidenav()">
+    <a mat-list-item (click)="onCloseSidenav()">
       <mat-icon>info</mat-icon>
-      <span class="nav-subheader">Details</span></a
-    >
+      <span class="nav-subheader"
+        ><app-snackbar [navItem]="navItem$"></app-snackbar></span
+    ></a>
   </mat-list-item>
 </mat-nav-list>

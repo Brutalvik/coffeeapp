@@ -4,11 +4,13 @@
       <mat-icon>menu</mat-icon>
     </button>
   </div>
-  <div>Coffee</div>
+  <div><h4 routerLink="/">Coffee</h4></div>
   <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
     <ul fxLayout fxLayoutGap="20px" class="navitems">
       <li><a routerLink="/">Products</a></li>
-      <li><a routerLink="/productdetails">Details</a></li>
+      <li>
+        <a><app-snackbar [navItem]="navItem$"></app-snackbar></a>
+      </li>
     </ul>
   </div>
 </mat-toolbar>

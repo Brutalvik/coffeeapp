@@ -21,6 +21,7 @@ export class StoreEffects {
     }>
   ) {}
 
+  //Effect to to fetch API data
   loadApiData$ = createEffect(() => {
     this.store.dispatch(isLoaded({ status: true }));
     try {
@@ -31,6 +32,7 @@ export class StoreEffects {
             map((data) => {
               this.store.dispatch(isLoaded({ status: false }));
               if (data) {
+                //storing data in localstorage for persisting data
                 localStorage.setItem('data', JSON.stringify(data));
                 return getSuccessData({ data });
               } else {

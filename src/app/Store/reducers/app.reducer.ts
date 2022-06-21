@@ -7,6 +7,7 @@ import {
   setSelectedCoffee,
 } from '../actions/app.actions';
 
+//App State Interface
 const initialState: AppStateInterface = {
   isLoading: false,
   data: null,
@@ -14,6 +15,7 @@ const initialState: AppStateInterface = {
   coffee: null,
 };
 
+//Reducers
 const _appReducer = createReducer(
   initialState,
   on(isLoaded, (state, action) => {

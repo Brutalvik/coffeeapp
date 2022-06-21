@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class FetchDataService {
   constructor(private http: HttpClient) {}
 
+  //Service
   fetchApiData() {
     return this.http.get(
       'https://random-data-api.com/api/coffee/random_coffee?size=50'

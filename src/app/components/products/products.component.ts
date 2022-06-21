@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { fetchData } from 'src/app/Store/actions/app.actions';
-import { FetchDataService } from 'src/app/Store/services/app.service';
+
 import {
   CoffeeDataInterface,
   ErrorDataInterface,

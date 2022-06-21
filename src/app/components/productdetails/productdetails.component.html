@@ -1,4 +1,8 @@
-<div>
+<div *ngIf="!error$" class="info_container">
+  <h2>Error {{ error$.status }}</h2>
+  <h4>{{ error$.message }}</h4>
+</div>
+<div *ngIf="error$">
   <div>
     <div class="image">
       <img src="../../assets/coffee10.png" alt="coffee10" />
@@ -24,11 +28,8 @@
       <p>Taste : {{ coffeeData$.notes }}</p>
       <hr />
     </div>
-
-    <div class="btn-container">
-      <button mat-raised-button (click)="redirectToHome()">
-        Back to Coffees
-      </button>
-    </div>
   </div>
+</div>
+<div class="btn-container">
+  <button mat-raised-button (click)="redirectToHome()">Back to Coffees</button>
 </div>

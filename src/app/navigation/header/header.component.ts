@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  //Close Navigation Emitter
   onToggleSideNav() {
     this.sideNavEvent.emit();
   }

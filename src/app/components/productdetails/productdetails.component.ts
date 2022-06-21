@@ -6,7 +6,6 @@ import {
   ErrorDataInterface,
 } from 'src/app/Models/app.model';
 import { isLoaded } from 'src/app/Store/actions/app.actions';
-import { FetchDataService } from 'src/app/Store/services/app.service';
 
 @Component({
   selector: 'app-productdetails',
@@ -16,7 +15,6 @@ import { FetchDataService } from 'src/app/Store/services/app.service';
 export class ProductdetailsComponent implements OnInit {
   error$: ErrorDataInterface = null;
   isLoading$: boolean = null;
-  data$: CoffeeDataInterface[] = null;
   coffeeData$: CoffeeDataInterface = null;
   constructor(
     private store: Store<{
@@ -34,16 +32,20 @@ export class ProductdetailsComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(isLoaded({ status: true }));
     this.store.subscribe((data) => (this.isLoading$ = data.app.isLoading));
-    console.log('started...');
+
+    //fetching persisted localstorage data
     let dataPersists: CoffeeDataInterface[] = JSON.parse(
       localStorage.getItem('data')
     );
+
     try {
       this.route.params.forEach((params: Params) => {
         Object.values(dataPersists).map((value) => {
           if (value.id === parseInt(params.id)) {
             this.coffeeData$ = value;
-            console.log(value);
+            this.store.dispatch(isLoaded({ status: false }));
+          } else {
+            this.error$ = { status: 500, message: 'Internal Error' };
             this.store.dispatch(isLoaded({ status: false }));
           }
         });
@@ -53,6 +55,7 @@ export class ProductdetailsComponent implements OnInit {
     }
   }
 
+  //redirect
   redirectToHome() {
     this.store.dispatch(isLoaded({ status: true }));
     this.router.navigate(['/']);

@@ -6,6 +6,7 @@ import {
   ErrorDataInterface,
 } from 'src/app/Models/app.model';
 import { getSuccessData, isLoaded } from 'src/app/Store/actions/app.actions';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-card',
@@ -18,7 +19,8 @@ export class CardComponent implements OnInit {
   p: number = 1;
   data$: CoffeeDataInterface[] = null;
   error$: ErrorDataInterface = null;
-  coffeeImage: any;
+  imageArray: any;
+  image: any;
 
   constructor(
     private store: Store<{
@@ -27,11 +29,16 @@ export class CardComponent implements OnInit {
         data: CoffeeDataInterface[];
       };
     }>,
-    private router: Router
+    private router: Router,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {
     this.store.subscribe((data) => (this.data$ = data.app.data));
+  }
+
+  sanitizeImageUrl(imageUrl: string): SafeUrl {
+    return this.sanitizer.bypassSecurityTrustUrl(imageUrl);
   }
 
   onPageChange(page: number) {

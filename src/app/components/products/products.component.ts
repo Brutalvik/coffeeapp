@@ -16,7 +16,6 @@ export class ProductsComponent implements OnInit {
   isLoading$: boolean;
   data$: CoffeeDataInterface[];
   error$: ErrorDataInterface;
-
   constructor(
     private store: Store<{
       app: {

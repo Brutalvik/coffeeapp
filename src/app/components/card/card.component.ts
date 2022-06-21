@@ -20,8 +20,6 @@ export class CardComponent implements OnInit {
   error$: ErrorDataInterface = null;
   coffeeImage: any;
 
-  //generate random images for coffee
-
   constructor(
     private store: Store<{
       app: {
